@@ -9,7 +9,9 @@ const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
-
+  // console.log('Service ID:', import.meta.env.VITE_EMAILJS_SERVICEID);
+  // console.log('Template ID:', import.meta.env.VITE_EMAILJS_TEMPLATEID);
+  // console.log('User ID:', import.meta.env.VITE_EMAILJS_USERID);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -20,10 +22,10 @@ const Contact = () => {
     setLoading(true);
 
     emailjs.send(
-      "service_xxx", 
-      "template_xxx", 
+      'service_62iggho',
+      'template_8wg51zo',
       { from_name: form.name, to_name: "Shivam", from_email: form.email, to_email: "kshivam12112000@gmail.com", message: form.message },
-      "user_xxx"
+      'rGIXYzWidbaLthrYu'
     )
     .then(() => {
       setLoading(false);
