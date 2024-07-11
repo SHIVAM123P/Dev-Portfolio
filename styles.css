@@ -1,0 +1,23 @@
+/* styles.css */
+html {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #121010;
+    color: #df2929;
+  }
+  
+  .bg-dark {
+    background-color: #121212;
+  }
+  
+  .text-light {
+    color: #bbbbbb;
+  }
+  
+  .bg-primary {
+    background-color: #6200ea;
+  }
+  
+  .bg-secondary {
+    background-color: #3700b3;
+  }
+  

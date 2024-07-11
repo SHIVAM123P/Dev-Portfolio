@@ -4,6 +4,8 @@ import creator from "./creator.png";
 import mobile from "./mobile.png";
 import web from "./web.png";
 import github from "./github.png";
+import link from "./link.png";
+import resume from "./resume.jpg";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
@@ -25,8 +27,11 @@ import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
-
+import kestone from "./company/kestone.png";
+import accenture from "./company/accenture.png";
 import carrent from "./carrent.png";
+import recipefinder from "./recipefinder.png";
+import prodigypath from "./prodigypath.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
@@ -37,6 +42,7 @@ export {
   mobile,
   web,
   github,
+  link,
   menu,
   close,
   css,
@@ -55,8 +61,13 @@ export {
   meta,
   shopify,
   starbucks,
+  kestone,
+  accenture,
   tesla,
   carrent,
+  recipefinder,
+  prodigypath,
   jobit,
   tripguide,
+  resume
 };
