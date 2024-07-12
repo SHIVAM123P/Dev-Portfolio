@@ -28,30 +28,52 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             : "bg-white bg-opacity-100"
           : darkMode
           ? "bg-darkBlue"
-          : "bg-white"
+          : "bg-black bg-opacity-100"
       }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6">
-        <Link
-          to="/"
-          className="flex items-center gap-2"
-          onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
-          }}
-        >
-          <p className="text-light text-lg font-bold cursor-pointer">
-            Shivam Kumar
-          </p>
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link
+            to="/"
+            className="hidden md:flex items-center"
+            onClick={() => {
+              setActive("");
+              window.scrollTo(0, 0);
+            }}
+          >
+            <p className="text-light text-lg font-bold cursor-pointer">
+              Shivam Kumar
+            </p>
+          </Link>
+          <div className="md:hidden">
+            <button
+              aria-label="Toggle menu"
+              onClick={() => setToggle(!toggle)}
+            >
+              <img
+                src={toggle ? close : menu}
+                alt="menu"
+                className="w-7 h-7 object-contain"
+              />
+            </button>
+          </div>
+        </div>
 
         <ul className="hidden sm:flex flex-row gap-10">
           {navLinks.map((nav) => (
             <li
               key={nav.id}
               className={`${
-                active === nav.title ? "text-white" : "text-gray"
-              } hover:text-white text-lg font-medium cursor-pointer`}
+                active === nav.title
+                  ? darkMode
+                    ? "text-white"
+                    : "text-black"
+                  : "text-gray"
+              } ${
+                darkMode
+                  ? "hover:text-blue-900"
+                  : "hover:text-black-900"
+              } hover:scale-105 transform transition-transform duration-300 ease-in-out text-lg font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
             >
               <a href={`#${nav.id}`}>{nav.title}</a>
@@ -60,17 +82,6 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
         </ul>
 
         <div className="sm:hidden flex flex-1 justify-end items-center">
-          <button
-            aria-label="Toggle menu"
-            onClick={() => setToggle(!toggle)}
-          >
-            <img
-              src={toggle ? close : menu}
-              alt="menu"
-              className="w-7 h-7 object-contain"
-            />
-          </button>
-
           <div
             className={`${
               !toggle ? "hidden" : "flex"
@@ -81,8 +92,16 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                 <li
                   key={nav.id}
                   className={`font-medium text-lg cursor-pointer ${
-                    active === nav.title ? "text-white" : "text-gray"
-                  }`}
+                    active === nav.title
+                      ? darkMode
+                        ? "text-white"
+                        : "text-black"
+                      : "text-gray"
+                  } ${
+                    darkMode
+                      ? "hover:text-blue-900"
+                      : "hover:text-black-900"
+                  } hover:scale-105 transform transition-transform duration-300 ease-in-out`}
                   onClick={() => {
                     setToggle(!toggle);
                     setActive(nav.title);
@@ -100,7 +119,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
           <button
             className={`px-4 py-2 rounded ${
               darkMode ? "bg-secondary text-white" : "bg-black text-white-100"
-            } mr-2`}
+            } mr-3 px-2 py-2 bg-primary text-white rounded transition-transform duration-300 ease-in-out hover:scale-110`}
             onClick={toggleDarkMode}
           >
             {darkMode ? "Light Mode" : "Dark Mode"}
@@ -112,16 +131,12 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             download="Shivam_Kumar_Resume.pdf" // Specify the filename for download
             target="_blank"
             rel="noopener noreferrer"
-            className={`px-4 py-2 rounded flex items-center ${
+            className={`px-2 py-2 rounded flex items-center ${
               darkMode ? "bg-secondary text-white" : "bg-black text-white-100"
-            }`}
+            }mr-3 px-1 py-2 bg-primary text-white rounded transition-transform duration-200 ease-in-out hover:scale-110`}
           >
             View Resume
-            <img
-              src={resume}
-              alt="Resume Icon"
-              className="w-5 h-5 ml-2 inline"
-            />
+            <img src={resume} alt="Resume Icon" className="w-5 h-5 ml-2 inline" />
           </a>
         </div>
       </div>

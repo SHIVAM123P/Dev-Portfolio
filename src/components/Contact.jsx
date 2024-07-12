@@ -84,7 +84,7 @@ const Contact = (darkMode, toggleDarkMode) => {
             type='submit'
             className={`px-4 py-2 rounded max-w-[70px] ${
               darkMode ? "bg-secondary text-white" : "bg-black text-white-100"
-            } mr-2`}
+            } mr-2 px-4 py-2 bg-primary text-white rounded transition-transform duration-300 ease-in-out hover:scale-110`}
             
           >
             {loading ? "Sending..." : "Send"}
