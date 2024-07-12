@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.button{
+  color: #56ccf2;
+}
+
+.text-accent{
+  color: #3d3d35;
+}
 * {
   margin: 0;
   padding: 0;

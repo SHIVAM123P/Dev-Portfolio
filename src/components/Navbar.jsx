@@ -99,7 +99,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
         <div className="flex items-center">
           <button
             className={`px-4 py-2 rounded ${
-              darkMode ? "bg-secondary text-white" : "bg-white text-dark-100"
+              darkMode ? "bg-secondary text-white" : "bg-black text-white-100"
             } mr-2`}
             onClick={toggleDarkMode}
           >
@@ -113,7 +113,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             target="_blank"
             rel="noopener noreferrer"
             className={`px-4 py-2 rounded flex items-center ${
-              darkMode ? "bg-secondary text-white" : "bg-white text-dark-100"
+              darkMode ? "bg-secondary text-white" : "bg-black text-white-100"
             }`}
           >
             View Resume

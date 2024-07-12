@@ -5,7 +5,7 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import { EarthCanvas } from "./canvas";
 
-const Contact = () => {
+const Contact = (darkMode, toggleDarkMode) => {
   const formRef = useRef();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
@@ -82,7 +82,10 @@ const Contact = () => {
 
           <button
             type='submit'
-            className='bg-primary py-3 px-8 rounded-xl outline-none w-fit text-light font-bold shadow-md shadow-primary'
+            className={`px-4 py-2 rounded max-w-[70px] ${
+              darkMode ? "bg-secondary text-white" : "bg-black text-white-100"
+            } mr-2`}
+            
           >
             {loading ? "Sending..." : "Send"}
           </button>

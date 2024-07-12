@@ -1,7 +1,17 @@
 import { motion } from "framer-motion";
+import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { ComputersCanvas } from "./canvas";
 
 const Hero = () => {
+  const [text] = useTypewriter({
+    words: ['Shivam', 'a web developer'],
+    loop: true,
+    typeSpeed: 100,
+    deleteSpeed: 50,
+    delaySpeed: 1000,
+    Color: 'red',
+  });
+
   return (
     <section className='relative w-full h-screen mx-auto'>
       <div className='absolute inset-0 top-[120px] max-w-7xl mx-auto px-6 flex flex-row items-start gap-5'>
@@ -12,7 +22,7 @@ const Hero = () => {
 
         <div>
           <h1 className='text-5xl font-bold text-light'>
-            Hi, I'm <span >Shivam</span>
+            Hi, I'm <span className='text-accent'>{text}</span><Cursor cursorColor="#primary" />
           </h1>
           <p className='mt-2 text-lg text-dark'>
             I develop web applications, <br className='sm:block hidden' />

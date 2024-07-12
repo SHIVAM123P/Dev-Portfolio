@@ -37,7 +37,7 @@ const App = () => {
         <Works />
         <Feedbacks />
         <div className='relative'>
-          <Contact />
+          <Contact darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
           <StarsCanvas />
         </div>
       </div>
