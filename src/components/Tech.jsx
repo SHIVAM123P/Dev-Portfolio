@@ -45,6 +45,17 @@ const Tech = () => {
               alt={`Icon for ${technology.name}`} // Alt text for accessibility
             />
           )}
+
+          {/* Alt text fallback */}
+          {!loading && !error && (
+            <img
+              src={technology.icon}
+              alt={`Icon for ${technology.name}`}
+              style={{ visibility: "hidden" }}
+              onLoad={handleLoadComplete}
+              onError={handleError}
+            />
+          )}
         </div>
       ))}
     </div>
