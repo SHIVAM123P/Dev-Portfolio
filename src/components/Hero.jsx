@@ -12,6 +12,9 @@ const Hero = () => {
     Color: 'red',
   });
 
+  // Determine if the 3D model should be shown based on device capabilities
+  const show3DModel = true; // Replace with your condition to check if 3D model can be loaded
+
   return (
     <section className='relative w-full h-screen mx-auto'>
       <div className='absolute inset-0 top-[120px] max-w-7xl mx-auto px-6 flex flex-row items-start gap-5'>
@@ -31,7 +34,13 @@ const Hero = () => {
         </div>
       </div>
 
-      <ComputersCanvas />
+      {show3DModel ? (
+        <ComputersCanvas />
+      ) : (
+        <div className="w-full h-screen flex justify-center items-center">
+          <p className="text-center text-xl">Sorry, the 3D model could not be loaded on this device.</p>
+        </div>
+      )}
 
       <div className='absolute bottom-10 w-full flex justify-center items-center'>
         <a href='#about'>
