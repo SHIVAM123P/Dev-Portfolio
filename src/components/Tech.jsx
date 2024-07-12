@@ -5,10 +5,17 @@ import { technologies } from "../constants";
 
 const Tech = () => {
   const [loading, setLoading] = useState(true); // State to track loading state
+  const [error, setError] = useState(false);   // State to track error state
 
   // Function to handle loading complete
   const handleLoadComplete = () => {
     setLoading(false);
+  };
+
+  // Function to handle error loading icon
+  const handleError = () => {
+    setLoading(false);
+    setError(true);
   };
 
   return (
@@ -22,13 +29,22 @@ const Tech = () => {
             </div>
           )}
 
+          {/* Error fallback */}
+          {error && (
+            <div className="absolute inset-0 flex justify-center items-center">
+              <p className="text-gray-500">Icon failed to load</p>
+            </div>
+          )}
+
           {/* BallCanvas with icon */}
-          <BallCanvas
-            icon={technology.icon}
-            onLoad={handleLoadComplete} // Callback when icon has loaded
-            onError={() => setLoading(false)} // Handle error loading icon
-            alt={`Icon for ${technology.name}`} // Alt text for accessibility
-          />
+          {!loading && !error && (
+            <BallCanvas
+              icon={technology.icon}
+              onLoad={handleLoadComplete} // Callback when icon has loaded
+              onError={handleError}      // Handle error loading icon
+              alt={`Icon for ${technology.name}`} // Alt text for accessibility
+            />
+          )}
         </div>
       ))}
     </div>
