@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Decal, Float, OrbitControls, Preload, useTexture } from "@react-three/drei";
 import CanvasLoader from "../Loader";
@@ -18,7 +18,6 @@ const Ball = (props) => {
           polygonOffsetFactor={-5}
           flatShading
         />
-        {/* Ensure decal is valid before using */}
         {decal && (
           <Decal
             position={[0, 0, 1]}
@@ -33,8 +32,10 @@ const Ball = (props) => {
   );
 };
 
-const BallCanvas = ({ icon, onError }) => {
+const BallCanvas = ({ icon, onError, alt }) => {
   const [loading, setLoading] = useState(true); // State to track loading state
+  const [showAltText, setShowAltText] = useState(false); // State to track displaying alt text
+  const timerRef = useRef(null);
 
   // Handle loading completion
   const handleLoadComplete = () => {
@@ -45,7 +46,18 @@ const BallCanvas = ({ icon, onError }) => {
   const handleLoadError = () => {
     setLoading(false);
     onError();
+    // Start a timeout to show alt text after 3 seconds
+    timerRef.current = setTimeout(() => {
+      setShowAltText(true);
+    }, 3000);
   };
+
+  useEffect(() => {
+    return () => {
+      // Clear timeout on component unmount
+      clearTimeout(timerRef.current);
+    };
+  }, []);
 
   return (
     <Canvas frameloop='demand' dpr={[1, 2]} gl={{ preserveDrawingBuffer: true }}>
@@ -53,6 +65,8 @@ const BallCanvas = ({ icon, onError }) => {
       {/* Display loading indicator or fallback if loading */}
       {loading ? (
         <CanvasLoader />
+      ) : showAltText ? (
+        <p className="text-gray-500 text-center">{alt}</p>
       ) : (
         <Ball imgUrl={icon} />
       )}
