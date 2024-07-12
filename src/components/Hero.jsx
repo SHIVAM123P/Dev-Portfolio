@@ -13,7 +13,8 @@ const Hero = () => {
   });
 
   // Determine if the 3D model should be shown based on device capabilities
-  const show3DModel = true; // Replace with your condition to check if 3D model can be loaded
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const show3DModel = !isMobile; // Example condition: Show 3D model if not on a mobile device
 
   return (
     <section className='relative w-full h-screen mx-auto'>
