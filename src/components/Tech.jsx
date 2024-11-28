@@ -2,7 +2,7 @@ import React from "react";
 import { useMediaQuery } from 'react-responsive';
 import { technologies } from "../constants";
 import { SectionWrapper } from "../hoc";
-
+import BallCanvas from "./canvas/Ball";
 const Tech = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 }); // Check if the device width is mobile
 
