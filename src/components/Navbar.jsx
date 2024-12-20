@@ -127,7 +127,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
 
           {/* Resume Download Button */}
           <a
-            href="https://drive.google.com/file/d/1IOtr93DjvYzL4UlO-rBnnftbOm8wfMtO/view?usp=sharing" // Replace with the actual path to your resume file
+            href="https://drive.google.com/file/d/1ZqtXXzKA3cFO2bT0d34HZCDgZQbJWoOx/view?usp=sharing" 
             download="Shivam_Kumar_Resume.pdf" // Specify the filename for download
             target="_blank"
             rel="noopener noreferrer"
